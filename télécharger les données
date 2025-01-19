@@ -1,0 +1,15 @@
+pip install yfinance
+
+import yfinance as yf
+
+# Télécharger les données des prix de l'or
+# Nous utilisons 'GC=F' qui est le symbole de l'or sur Yahoo Finance
+# Tu peux définir la période que tu souhaites, ici de 2010 à 2025
+
+gold = yf.download('GC=F', start='2010-01-01', end='2025-01-01')
+
+# Afficher les premières lignes pour vérifier
+print(gold.head())
+
+# Sauvegarder les données dans un fichier CSV
+gold.to_csv('gold_prices.csv')
