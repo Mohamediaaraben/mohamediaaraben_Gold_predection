@@ -1,0 +1,11 @@
+import pandas as pd
+
+# Créer un DataFrame avec les résultats
+df_predictions = pd.DataFrame({
+    'Date': df['Date'].iloc[-len(predictions):],
+    'Prédictions': predictions.flatten(),
+    'Prix Réels': df['Close'].iloc[-len(predictions):]
+})
+
+# Sauvegarder dans un fichier Excel
+df_predictions.to_excel('predictions_gold_prices.xlsx', index=False)
